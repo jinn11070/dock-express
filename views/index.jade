@@ -1,0 +1,38 @@
+extends layout
+
+block content
+    h1= title
+    p WRITE BBS!!!
+
+    form(action='/write', method='POST')
+        p 아이디
+            input(type='text' name='userId' value='sjjung')#userId
+        p 이름
+            input(type='text' name='userName' value='정수진')#userName
+        p 제목
+            input(type='text' name='subject' value='ㅈ러재댜러')#subject
+        p 내용
+            textarea(name=content row=3)#content
+        p
+            input(type='submit', value='WRITE')
+
+    script(type='text/javascript').
+      $(document).ready(function () {
+
+        $('form').submit(function () {
+          var userId = $("#userId").val();
+          var userName = $('#userName').val();
+          var subject = $('#subject').val();
+          var content = $('#content').val();
+
+          /*유효성검사*/
+          if (userId === '' || userName === '' || subject === '' || content === '') {
+            alert("내용입력하라냐")
+            return false;
+          }
+        })
+      })
+
+
+
+
