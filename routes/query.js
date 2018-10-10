@@ -29,7 +29,8 @@ function query() {
     },
     listBBS: function(cb) {
       client.query(
-        'select * from bbs', [], function(err, results, fields) {
+        // 'select * from bbs', [], function(err, results, fields) {
+        'select no, subject, content, userId, userName from bbs', [], function(err, results, fields) {
           if (err) throw err;
           cb(results);
         }

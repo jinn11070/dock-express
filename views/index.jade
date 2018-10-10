@@ -12,12 +12,18 @@ block content
         p 제목
             input(type='text' name='subject' value='ㅈ러재댜러')#subject
         p 내용
-            textarea(name=content row=3)#content
+            textarea(name='content' row=3)#content
         p
-            input(type='submit', value='WRITE')
+            input(type='submit', value='글쓰기')
+
+            button(type='text' id='listBBS')목록보기
 
     script(type='text/javascript').
       $(document).ready(function () {
+        $(document).on('click', '#listBBS', function(e) {
+          e.preventDefault();
+          location.href = '/list';
+        })
 
         $('form').submit(function () {
           var userId = $("#userId").val();
