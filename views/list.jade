@@ -3,25 +3,31 @@ extends layout
 block content
     h1= title
     p WRITE BBS!!!
+    script.
+        keys = Object.keys(userList[0])
 
     table
         thead
-            tr
-            - for key in Object.keys(userList[0])
+            each key in Object.keys(userList[0])
                 th= key
         tbody
-        - for user in userList
-            tr
-            - for key in Object.keys(userList[0])
-                td(class='col-td')= user[key]
+            each user, i in userList
+                tr
+                    each key in Object.keys(userList[0])
+                        td(class='col-td')
+                            - if (key === 'no')
+                                span= i + 1
+                            - else
+                                span= user[key]
+
 
     button(type='text', id='writeBBS')글쓰기
 
     script(type='text/javascript').
-        $(document).ready(function() {
-            $(document).on('click', '#writeBBS', function(e) {
-                e.preventDefault();
-                location.href = '/'
+      $(document).ready(function () {
+        $(document).on('click', '#writeBBS', function (e) {
+          e.preventDefault();
+          location.href = '/'
 
-            });
         });
+      });
