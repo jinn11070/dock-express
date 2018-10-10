@@ -1,9 +1,6 @@
 extends layout
 
 block content
-    h1= title
-    p WRITE BBS!!!
-
     form(action='/write', method='POST')
         p 아이디
             input(type='text' name='userId' value='sjjung')#userId

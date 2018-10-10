@@ -3,10 +3,10 @@ var router = express.Router();
 
 var query = require('./query')();
 
-/* POST write */
+/* list */
 router.get('/', function(req, res, next) {
   /* 1. DB에 저장 */
-  query.listBBS(function(results) {
+  query.listBBS('', function(results) {
     // res.send({userList:results})
 
     console.log(JSON.stringify(results))

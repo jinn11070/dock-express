@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1= '글번호' + no + '|' + subject
+
+    input(type=text, value=userName, readonly=readonly)
+    br
+    br
+    input(type=text, value=userId, readonly=readonly)
+    br
+    br
+    textarea(readonly=readonly) #{content}
+
+    button(type='text' id='listBBS')목록보기
+
+    script(type='text/javascript').
+        $(document).ready(function() {
+            $(document).on('click', function(e) {
+                e.preventDefault();
+                location.href="/list";
+            })
+        });

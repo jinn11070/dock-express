@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-/* POST write */
-router.post('/', function(req, res, next) {
-  var writeInfo = req.body
+var query = require('./query')();
 
-  /* 1. DB에 저장 */
-
-  /* 2. list 로 이동 */
-  res.render('list', result);
+/* view */
+router.get('/view/:no', function(req, res) {
+  query.listBBS(req.params.no, function(result) {
+    console.log(JSON.stringify(result))
+    res.render('view', result[0])
+  })
 });
 
 module.exports = router;
