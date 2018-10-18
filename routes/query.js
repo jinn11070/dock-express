@@ -10,8 +10,13 @@ var client = mysql.createConnection({
 });
 
 client.connect(function(err) {
-  if (err) console.error('error!');
-  else console.info('mysql connection open!')
+  if (err) {
+    console.error('mysql error!');
+    return true;
+  }
+  else {
+    console.info('mysql connection open!')
+  }
 });
 
 module.exports = query;
